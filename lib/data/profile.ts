@@ -66,19 +66,11 @@ export const verifiedMetrics = [
   { value: "5.0", label: "Client Satisfaction", note: "Verified client feedback" },
 ]
 
-// Kept for digital-resume component compatibility (page is redirected)
-export const education = [
-  {
-    title: "B.Tech in Computer Science & Engineering",
-    place: "JNTUA College of Engineering",
-    period: "2022 – 2025",
-    result: "CGPA: 7.67",
-  },
-]
+export const education: Array<{ title: string; place: string; period: string; result?: string }> = []
 
 export const certifications = [
-  { title: "Azure Fundamentals (AZ-900)", issuer: "Microsoft Certified" },
-  { title: "Social Innovation in Industry 4.0", issuer: "NPTEL Certification" },
+  { title: "Cloud Architecture & Solutions Engineering", issuer: "Enterprise Standards" },
+  { title: "Modern Full-Stack Software Engineering", issuer: "Production Practice" },
 ]
 
 export const navLinks = [

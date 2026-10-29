@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
     projectSlug: "comfort-floors-bathrooms",
     projectTitle: "International Web Platform",
     quote:
-      "Gangadhara engineered our new website with speed and high technical precision. The site loads instantaneously on mobile data, achieved a 92/100 Google PageSpeed rating, and our incoming consultation inquiries noticeably increased within weeks of launch.",
+      "Vektorsynapse engineered our new website with speed and high technical precision. The site loads instantaneously on mobile data, achieved a 92/100 Google PageSpeed rating, and our incoming consultation inquiries noticeably increased within weeks of launch.",
     metrics: "92/100 PageSpeed · 0.00 CLS",
     rating: 5,
     avatarInitials: "DO",
@@ -36,7 +36,7 @@ export const testimonials: Testimonial[] = [
     projectSlug: "agnikula-kshatriyas-it-solutions",
     projectTitle: "Enterprise Web Platform",
     quote:
-      "Gangadhara built our corporate platform with exceptional architecture, clean NestJS services, and modern responsive design. The platform is fast, dependable, and has significantly elevated our brand credibility.",
+      "Vektorsynapse built our corporate platform with exceptional architecture, clean NestJS services, and modern responsive design. The platform is fast, dependable, and has significantly elevated our brand credibility.",
     metrics: "100% Uptime · Modern NestJS Stack",
     rating: 5,
     avatarInitials: "PV",

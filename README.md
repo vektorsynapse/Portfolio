@@ -5,22 +5,16 @@
   <br />
   <br />
 
-  # ⚡ Gangadhara Gooti
-  ### **Freelance Full-Stack Developer & Technical Solutions Consultant**
+  # ⚡ Vektorsynapse
+  ### **Full-Stack Development & Technical Solutions Studio**
 
   <p align="center">
     <i>"Building software that feels simple on the surface, engineered deeply underneath."</i>
   </p>
 
   <p align="center">
-    <a href="https://wa.me/916300355608" target="_blank">
-      <img src="https://img.shields.io/badge/WhatsApp-Chat%20Live-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp" />
-    </a>
     <a href="mailto:contact.vektorsynapse@gmail.com">
-      <img src="https://img.shields.io/badge/Email-Direct%20Inquiry-5a3cf2?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-    </a>
-    <a href="https://linkedin.com/in/gangadhar-gooti" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+      <img src="https://img.shields.io/badge/Email-Contact%20Studio-5a3cf2?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
     </a>
     <a href="https://github.com/vektorsynapse" target="_blank">
       <img src="https://img.shields.io/badge/GitHub-Vektorsynapse-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
@@ -42,9 +36,9 @@
 
 ## 🔮 Overview
 
-This repository powers the official portfolio and digital client acquisition platform for **Gangadhara Gooti**. Designed with a bespoke **Apple/Linear-inspired dark glassmorphism aesthetic**, it serves as living proof of engineering discipline, speed, and clean code architecture.
+This repository powers the official portfolio and digital client engagement platform for **Vektorsynapse**. Designed with a bespoke **Apple/Linear-inspired dark glassmorphism aesthetic**, it serves as living proof of engineering discipline, speed, and clean code architecture.
 
-Unlike generic developer portfolios, this system is built as a **high-converting client engagement engine** featuring real-time multi-currency pricing calculations, verified client reviews from Indian and European deployments, Edge-generated OpenGraph previews, and interactive project case studies.
+The platform is built as a **high-converting client engagement engine** featuring real-time multi-currency pricing calculations, verified client reviews from international deployments, Edge-generated OpenGraph previews, and interactive project case studies.
 
 ---
 
@@ -60,7 +54,7 @@ Unlike generic developer portfolios, this system is built as a **high-converting
 * **Zero-Shift Geometry:** Rigorously engineered layout geometry hitting **0.00 Cumulative Layout Shift (CLS)** and sub-second Largest Contentful Paint (LCP).
 * **Edge-Native Social Sharing:** Dynamic OpenGraph preview images rendered on-the-fly via Next.js Edge Runtime (`ImageResponse`).
 * **Multi-Currency Pricing Calculator:** Instant real-time conversion across **INR (₹)**, **USD ($)**, and **EUR (€)** with formatted ranges.
-* **Frictionless Lead Routing:** Server-side contact API featuring instant WhatsApp routing, direct email fallback, and optional Resend/Web3Forms webhook delivery.
+* **Frictionless Lead Routing:** Server-side and direct Web3Forms contact submission with anti-spam honeypot and real-time status feedback.
 
 ---
 
@@ -73,12 +67,12 @@ graph TD
     C --> D[Audited Metrics Band: 98/100, 6 Modules]
     D --> E[Full Project Archive: Filterable Grid]
     E --> F[8-Domain Technical Mastery Matrix]
-    F --> G[Why Work With Me: Single Point of Accountability]
+    F --> G[Why Work With Us: Single Point of Accountability]
     G --> H[Verified Client Social Proof & Star Ratings]
     H --> I[Transparent Pricing Packages: Starting from ₹1,000]
     I --> J[5-Step Transparent Delivery Process]
     J --> K[Interactive 12-Question FAQ Accordion]
-    K --> L[High-Impact CTA Band + Global Floating WhatsApp]
+    K --> L[High-Impact CTA Band]
 ```
 
 ### 🎯 Feature Breakdown
@@ -86,11 +80,10 @@ graph TD
 | Feature | Tech Implementation | Purpose |
 |---|---|---|
 | **🎨 3D Emblem Floating Brand** | Custom cropped 1024x1024 lossless PNG, micro-tilt springs | Unboxed, native brand presence across header & footer |
-| **💬 Global WhatsApp Widget** | Motion spring entry, auto-timed dismissible tooltip | Instant 1-click consultation with pre-filled scope prompts |
 | **💰 Approachable Pricing** | Real-time currency rates with range and `+` parsing | Lowers client onboarding friction starting at ₹1,000 |
 | **⭐ Social Proof Engine** | Structured testimonials linked directly to project slugs | Verified proof from Ireland, India, and enterprise clients |
-| **🗺️ Search Engine Engine** | Dynamic `sitemap.ts` & `robots.ts` with metadataBase | Automated crawler discovery for all 13 project case studies |
-| **📄 1-Click PDF Resume** | Served directly via local static storage `/resume/` | Zero login barriers or Google Drive authorization prompts |
+| **🗺️ Search Engine Engine** | Dynamic `sitemap.ts` & `robots.ts` with metadataBase | Automated crawler discovery for all project case studies |
+| **📬 Contact Integration** | Web3Forms serverless delivery with botcheck protection | Instant inbox delivery with zero maintenance |
 
 ---
 
@@ -113,7 +106,7 @@ graph TD
       • <b>Node.js</b> & <b>NestJS</b><br />
       • <b>TypeScript 5.7</b> Strict Mode<br />
       • <b>Zod</b> Runtime Validation<br />
-      • <b>Resend</b> / <b>Web3Forms</b> API<br />
+      • <b>Web3Forms</b> API<br />
       • Edge Runtime <code>ImageResponse</code>
     </td>
     <td align="center" width="25%">
@@ -174,7 +167,7 @@ graph TD
 <br />
 
 * **Platform:** Three.js, GSAP, Lenis, HarfBuzz font shaping, Vite
-* **Highlight:** Zero-JS accessible fallback with 61 automated unit tests and WhatsApp guest routing.
+* **Highlight:** Zero-JS accessible fallback with 61 automated unit tests and guest routing.
 </details>
 
 ---
@@ -182,10 +175,10 @@ graph TD
 ## 📁 Repository Structure
 
 ```
-gangadhara-gooti-portfolio/
+Portfolio/
 ├── app/
-│   ├── about/             # Detailed career background & certifications
-│   ├── api/contact/       # Serverless email & lead dispatch handler
+│   ├── about/             # Studio capabilities & principles
+│   ├── api/contact/       # Serverless lead dispatch handler
 │   ├── contact/           # Multi-channel client communication portal
 │   ├── work/              # Project gallery & [slug] dynamic case studies
 │   ├── globals.css        # Tailwind v4 theme tokens & glass styling
@@ -196,7 +189,7 @@ gangadhara-gooti-portfolio/
 │   └── sitemap.ts         # Automated XML sitemap indexer
 ├── components/
 │   ├── brand-icons.tsx    # Optimized vector brand logos
-│   ├── contact-form.tsx   # Validated lead intake with instant routing
+│   ├── contact-form.tsx   # Validated lead intake with Web3Forms
 │   ├── cta-band.tsx       # Global conversion banner
 │   ├── faq.tsx            # Animated 12-question accordion with category filter
 │   ├── featured-work.tsx  # Flagship client project spotlight
@@ -205,14 +198,12 @@ gangadhara-gooti-portfolio/
 │   ├── pricing.tsx        # Dynamic 3-tier multi-currency pricing matrix
 │   ├── project-card.tsx   # Tilt-interactive cards with real screenshots
 │   ├── site-header.tsx    # Navigation with clean floating logo
-│   ├── testimonials.tsx   # Social proof & verified ratings
-│   └── whatsapp-button.tsx# Global floating instant-chat action widget
+│   └── testimonials.tsx   # Social proof & verified ratings
 ├── lib/
 │   ├── data/              # Decoupled content: profile, projects, services, faq, pricing
 │   └── contact-schema.ts  # Strict Zod validation rules
 └── public/
-    ├── images/            # Real project UI screenshots & high-res clean logo
-    └── resume/            # Direct download PDF resume
+    └── images/            # Project UI screenshots & studio emblem
 ```
 
 ---
@@ -227,8 +218,8 @@ gangadhara-gooti-portfolio/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Gangadhar-gdvs/gangadhara-gooti-portfolio.git
-   cd gangadhara-gooti-portfolio
+   git clone https://github.com/vektorsynapse/Portfolio.git
+   cd Portfolio
    ```
 
 2. **Install dependencies:**
@@ -238,16 +229,15 @@ gangadhara-gooti-portfolio/
    pnpm install
    ```
 
-3. **Configure Environment Variables (Optional):**
+3. **Configure Environment Variables:**
    Create a `.env.local` file in the root directory:
    ```env
-   # Optional: For automated email delivery from the contact form
-   RESEND_API_KEY=re_your_api_key_here
-   # Or Web3Forms:
+   # Web3Forms Access Key for contact form delivery
    WEB3FORMS_ACCESS_KEY=your_access_key_here
+   NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key_here
 
    # Site URL for metadata & sitemap resolution
-   NEXT_PUBLIC_SITE_URL=https://gangadhara-gooti.vercel.app
+   NEXT_PUBLIC_SITE_URL=https://vektorsynapse.vercel.app
    ```
 
 4. **Run development server:**
@@ -264,18 +254,17 @@ gangadhara-gooti-portfolio/
 
 ---
 
-## 📬 Contact & Availability
+## 📬 Contact & Engagements
 
-I am currently **open for new freelance engagements**, end-to-end MVP builds, technical consulting, and retainer partnerships.
+Vektorsynapse is open for new client engagements, full-stack MVP builds, technical consulting, and ongoing retainer partnerships.
 
-* 🌐 **Portfolio:** [gangadhara-freelancer.vercel.app](https://gangadhara-freelancer.vercel.app)
-* 💬 **WhatsApp:** [+91 6300355608](https://wa.me/916300355608)
-* ✉️ **Email:** [gangadhargdvs0@gmail.com](mailto:gangadhargdvs0@gmail.com)
-* 💼 **LinkedIn:** [/in/gangadhar-gooti](https://linkedin.com/in/gangadhar-gooti)
-* 📍 **Location:** Madhapur, Hyderabad, India *(Operates globally with IST / GMT / EST overlap)*
+* 🌐 **Website:** [vektorsynapse.vercel.app](https://vektorsynapse.vercel.app)
+* ✉️ **Email:** [contact.vektorsynapse@gmail.com](mailto:contact.vektorsynapse@gmail.com)
+* 🐙 **GitHub:** [github.com/vektorsynapse](https://github.com/vektorsynapse)
+* 📍 **Location:** Remote · Global *(Operating across IST / GMT / EST)*
 
 ---
 
 <div align="center">
-  <sub>Designed & engineered with precision by <b>Gangadhara Gooti</b>. Licensed under the MIT License.</sub>
+  <sub>Designed & engineered with precision by <b>Vektorsynapse</b>. All rights reserved.</sub>
 </div>

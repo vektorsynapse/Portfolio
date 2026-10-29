@@ -111,7 +111,7 @@ export const projects: Project[] = [
     client: "Zyrone Energy (In-house product)",
     location: "Gujarat, India",
     period: "Mar 2025 – Jul 2025",
-    repoUrl: "https://github.com/Gangadhar-gdvs/SuperCabs",
+    repoUrl: "https://github.com/vektorsynapse/SuperCabs",
     challenge:
       "Zyrone Energy required a modern, user-friendly mobile application frontend for a cab rental and mobility service. The client app needed fast onboarding, driver document verification, and reliable real-time push notification delivery across both iOS and Android devices.",
     solution: [
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     tagline: "Water delivery & branch logistics system",
     category: "demo",
     platform: "Mobile + logistics",
-    repoUrl: "https://github.com/Gangadhar-gdvs/Hydrox",
+    repoUrl: "https://github.com/vektorsynapse/Hydrox",
     solution: [],
     features: [
       "Mobile customer ordering",
