@@ -10,9 +10,6 @@ import { profile } from "@/lib/data/profile"
 type Status = "idle" | "submitting" | "ready" | "error"
 type Errors = Partial<Record<ContactField, string>>
 
-const WEB3FORMS_ACCESS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "fa412951-f8fa-46e5-892a-de23943b8ec8"
-
 const fieldClass =
   "w-full rounded-2xl border border-input bg-white/70 px-4 py-3 text-base shadow-inner outline-none transition focus:border-ring focus:ring-4 focus:ring-ring/20 dark:bg-white/5 aria-[invalid=true]:border-destructive"
 
@@ -57,24 +54,25 @@ export function ContactForm() {
     setStatus("submitting")
 
     try {
-      const formData = new FormData(form)
-      formData.set("access_key", WEB3FORMS_ACCESS_KEY)
-      formData.set("subject", `New Project Request: ${parsed.data.name} (${parsed.data.projectType})`)
-      formData.set("from_name", parsed.data.name)
-
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data),
       })
 
       const body = await res.json().catch(() => ({}))
 
-      if (body.success) {
+      if (res.ok && body.delivered) {
         setValues(parsed.data)
         setDelivered(true)
         setStatus("ready")
+      } else if (res.ok && !body.delivered) {
+        // Fallback: prepared draft for email app
+        setValues(parsed.data)
+        setDelivered(false)
+        setStatus("ready")
       } else {
-        throw new Error(body.message || "Failed to submit form. Please try again.")
+        throw new Error(body.error || "Failed to send message. Please try again.")
       }
     } catch (err) {
       setFormError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
@@ -158,7 +156,6 @@ export function ContactForm() {
   const err = (k: ContactField) => errors[k]
   return (
     <form onSubmit={onSubmit} noValidate className="glass space-y-5 rounded-[2.25rem] p-8 md:p-10">
-      <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>

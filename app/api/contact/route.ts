@@ -50,8 +50,8 @@ export async function POST(request: Request) {
     }
   }
 
-  // Option 2: Web3Forms (fallback server-side delivery)
-  const web3FormsKey = process.env.WEB3FORMS_ACCESS_KEY || "fa412951-f8fa-46e5-892a-de23943b8ec8"
+  // Option 2: Web3Forms (server-side delivery)
+  const web3FormsKey = process.env.WEB3FORMS_ACCESS_KEY || process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
   if (web3FormsKey) {
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
