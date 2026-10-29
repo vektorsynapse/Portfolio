@@ -18,7 +18,7 @@ const personJsonLd = {
   name: "Vektorsynapse",
   description: "Full-Stack Software Studio building production-grade web, mobile and desktop applications.",
   email: profile.email,
-  url: "https://vektorsynapse.vercel.app",
+  ...(process.env.NEXT_PUBLIC_SITE_URL ? { url: process.env.NEXT_PUBLIC_SITE_URL } : {}),
 }
 
 export default function HomePage() {

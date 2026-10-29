@@ -19,8 +19,10 @@ const geistMono = Geist_Mono({
   display: "swap",
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.vercel.app"),
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
     default: "Vektorsynapse | Full-Stack Software Studio",
     template: "%s | Vektorsynapse",
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     title: "Vektorsynapse | Full-Stack Software Studio",
     description:
       "Production-grade web, mobile and desktop software, from architecture to deployment, with a single point of technical accountability.",
-    url: "https://vektorsynapse.vercel.app",
+    ...(siteUrl ? { url: siteUrl } : {}),
     type: "website",
     siteName: "Vektorsynapse",
     images: [

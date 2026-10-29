@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 import { projects } from "@/lib/data/projects"
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.vercel.app"
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || ""
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

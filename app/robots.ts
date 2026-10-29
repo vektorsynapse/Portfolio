@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.vercel.app"
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -11,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    ...(baseUrl ? { sitemap: `${baseUrl}/sitemap.xml` } : {}),
   }
 }

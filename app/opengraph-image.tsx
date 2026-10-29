@@ -171,7 +171,9 @@ export default function OgImage() {
           ))}
           <div style={{ marginLeft: "auto", display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
             <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>Next.js · React · Flutter · NestJS</span>
-            <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>vektorsynapse.vercel.app</span>
+            <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>
+              {process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL).hostname : "vektorsynapse"}
+            </span>
           </div>
         </div>
       </div>

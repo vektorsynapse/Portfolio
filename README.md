@@ -237,7 +237,7 @@ Portfolio/
    NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key_here
 
    # Site URL for metadata & sitemap resolution
-   NEXT_PUBLIC_SITE_URL=https://vektorsynapse.vercel.app
+   NEXT_PUBLIC_SITE_URL=https://vektorsynapse.netlify.app
    ```
 
 4. **Run development server:**
@@ -258,7 +258,7 @@ Portfolio/
 
 Vektorsynapse is open for new client engagements, full-stack MVP builds, technical consulting, and ongoing retainer partnerships.
 
-* 🌐 **Website:** [vektorsynapse.vercel.app](https://vektorsynapse.vercel.app)
+* 🌐 **Website:** [vektorsynapse.netlify.app](https://vektorsynapse.netlify.app)
 * ✉️ **Email:** [contact.vektorsynapse@gmail.com](mailto:contact.vektorsynapse@gmail.com)
 * 🐙 **GitHub:** [github.com/vektorsynapse](https://github.com/vektorsynapse)
 * 📍 **Location:** Remote · Global *(Operating across IST / GMT / EST)*
