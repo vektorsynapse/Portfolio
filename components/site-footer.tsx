@@ -1,10 +1,32 @@
+"use client"
+
 import { Mail } from "lucide-react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { GithubIcon } from "@/components/brand-icons"
 import { Brand } from "@/components/site-header"
 import { navLinks, profile } from "@/lib/data/profile"
 
 export function SiteFooter() {
+  const pathname = usePathname()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes("#")) {
+      const [targetPath, hash] = href.split("#")
+      const currentPathNormalized = pathname === "" ? "/" : pathname
+      const targetNormalized = targetPath === "" ? "/" : targetPath
+
+      if (currentPathNormalized === targetNormalized) {
+        e.preventDefault()
+        const el = document.getElementById(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" })
+          window.history.pushState(null, "", href)
+        }
+      }
+    }
+  }
+
   return (
     <footer className="relative z-10 px-4 pb-8 pt-24">
       <div className="glass relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] p-8 md:p-12">
@@ -23,7 +45,11 @@ export function SiteFooter() {
             <ul className="space-y-2.5 text-sm font-medium">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="inline-block text-muted-foreground transition-all duration-200 hover:text-primary hover:translate-x-1">
+                  <Link
+                    href={l.href}
+                    onClick={(e) => handleNavClick(e, l.href)}
+                    className="inline-block text-muted-foreground transition-all duration-200 hover:text-primary hover:translate-x-1"
+                  >
                     {l.label}
                   </Link>
                 </li>

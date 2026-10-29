@@ -85,6 +85,37 @@ export function SiteHeader() {
     setOpen(false)
   }, [pathname])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes("#")) {
+      const [targetPath, hash] = href.split("#")
+      const currentPathNormalized = pathname === "" ? "/" : pathname
+      const targetNormalized = targetPath === "" ? "/" : targetPath
+
+      if (currentPathNormalized === targetNormalized) {
+        e.preventDefault()
+        const el = document.getElementById(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" })
+          window.history.pushState(null, "", href)
+        }
+      }
+    }
+    setOpen(false)
+  }
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash.replace("#", "")
+      const el = document.getElementById(hash)
+      if (el) {
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" })
+        }, 150)
+        return () => clearTimeout(timer)
+      }
+    }
+  }, [pathname])
+
   useEffect(() => {
     let ticking = false
     const onScroll = () => {
@@ -116,7 +147,7 @@ export function SiteHeader() {
         className={cn(
           "mx-auto flex max-w-7xl items-center justify-between gap-4 transition-all duration-300",
           isGlassy
-            ? "glass rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.08),inset_0_1.5px_1px_rgba(255,255,255,0.85),inset_0_-2px_4px_rgba(0,0,0,0.05)] dark:shadow-[0_12px_36px_-5px_rgba(0,0,0,0.45),inset_0_1.5px_1px_rgba(255,255,255,0.2),inset_0_-2px_6px_rgba(0,0,0,0.35)]"
+            ? "glass rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.08),inset_0_1.5px_1px_rgba(255,255,255,0.85),inset_0_-2px_4px_rgba(0,0,0,0.05)] dark:shadow-[0_12px_36px_-5px_rgba(0,0,0,0.45),inset_0_1.5px_1px_rgba(255,255,255,0.2),inset_0_-2px_6px_rgba(0,0,0,0.35)] max-md:dark:bg-[#0c0a24]/95 max-md:dark:backdrop-blur-2xl max-md:dark:border max-md:dark:border-white/15"
             : "bg-transparent px-0 py-0",
         )}
       >
@@ -131,6 +162,7 @@ export function SiteHeader() {
                   <Link
                     href={l.href}
                     aria-current={active ? "page" : undefined}
+                    onClick={(e) => handleNavClick(e, l.href)}
                     className={cn(
                       "relative block rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 lg:px-5",
                       !active && "hover:bg-foreground/[0.06] hover:text-foreground text-foreground/75 active:scale-95",
@@ -164,7 +196,7 @@ export function SiteHeader() {
           </Link>
           <button
             type="button"
-            className="btn btn-glass size-11 md:hidden"
+            className="btn btn-glass size-11 md:hidden max-md:dark:bg-[#16123a]/90 max-md:dark:border-white/20 max-md:dark:text-white max-md:dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)]"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -184,29 +216,34 @@ export function SiteHeader() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="glass relative mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl p-3 shadow-[0_12px_36px_rgba(0,0,0,0.12),inset_0_1.5px_1px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.05)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.5),inset_0_1.5px_1px_rgba(255,255,255,0.2),inset_0_-2px_6px_rgba(0,0,0,0.35)] md:hidden"
+            className="glass relative mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl p-3 shadow-[0_12px_36px_rgba(0,0,0,0.12),inset_0_1.5px_1px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.05)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.5),inset_0_1.5px_1px_rgba(255,255,255,0.2),inset_0_-2px_6px_rgba(0,0,0,0.35)] md:hidden max-md:dark:bg-[#0d0b28]/98 max-md:dark:backdrop-blur-2xl max-md:dark:border max-md:dark:border-white/15 max-md:dark:shadow-[0_24px_50px_rgba(0,0,0,0.9)]"
           >
             {/* Curled paper top edge reflection */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-6 top-0 h-[2px] rounded-full bg-gradient-to-r from-transparent via-brand-violet/70 to-transparent"
             />
-            <motion.ul className="flex flex-col">
-              {navLinks.map((l) => (
-                <motion.li key={l.href} variants={paperItemVariants}>
-                  <Link
-                    href={l.href}
-                    aria-current={isActive(pathname, l.href) ? "page" : undefined}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "block rounded-2xl px-4 py-2.5 text-base font-semibold transition-colors",
-                      isActive(pathname, l.href) ? "bg-primary/10 text-primary" : "hover:bg-primary/5",
-                    )}
-                  >
-                    {l.label}
-                  </Link>
-                </motion.li>
-              ))}
+            <motion.ul className="flex flex-col gap-1">
+              {navLinks.map((l) => {
+                const active = isActive(pathname, l.href)
+                return (
+                  <motion.li key={l.href} variants={paperItemVariants}>
+                    <Link
+                      href={l.href}
+                      aria-current={active ? "page" : undefined}
+                      onClick={(e) => handleNavClick(e, l.href)}
+                      className={cn(
+                        "block rounded-2xl px-4 py-2.5 text-base font-semibold transition-colors",
+                        active
+                          ? "bg-primary/10 text-primary max-md:dark:bg-gradient-to-r max-md:dark:from-violet-600/35 max-md:dark:to-indigo-600/35 max-md:dark:text-white max-md:dark:border max-md:dark:border-violet-500/30"
+                          : "hover:bg-primary/5 max-md:dark:text-slate-200 max-md:dark:hover:text-white max-md:dark:hover:bg-white/10",
+                      )}
+                    >
+                      {l.label}
+                    </Link>
+                  </motion.li>
+                )
+              })}
               <motion.li variants={paperItemVariants} className="p-2 sm:hidden">
                 <CtaLink href="/contact" className="w-full">
                   Let&apos;s Work Together

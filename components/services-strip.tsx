@@ -30,7 +30,7 @@ const pillars = [
 
 export function ServicesStrip() {
   return (
-    <section id="services" aria-labelledby="services-title" className="relative z-20 px-4 pt-2 pb-10">
+    <section id="services" aria-labelledby="services-title" className="relative z-20 scroll-mt-28 sm:scroll-mt-32 px-4 pt-2 pb-10">
       <h2 id="services-title" className="sr-only">
         Services & Capabilities
       </h2>
