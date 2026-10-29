@@ -1,0 +1,167 @@
+import type { Service, SkillGroup } from "./types"
+
+export const services: Service[] = [
+  {
+    title: "Full-Stack Web Applications",
+    short: "Scalable Next.js and React apps with secure Node.js backends.",
+    icon: "globe",
+    accent: "sky",
+    points: [
+      "Scalable, responsive web applications using Next.js (App Router, Server Components) and React.",
+      "Secure backends with Node.js, Express.js, NestJS, and Bun/Elysia.",
+      "Relational (PostgreSQL, MySQL) and NoSQL (MongoDB, Firebase) data models with automated migrations.",
+      "Token-based authentication (JWT, OAuth 2.0, bcrypt), granular RBAC, and audited data operations.",
+    ],
+  },
+  {
+    title: "Cross-Platform Mobile Apps",
+    short: "Native-speed iOS and Android apps built with Flutter and Dart.",
+    icon: "smartphone",
+    accent: "violet",
+    points: [
+      "Native-speed mobile applications for iOS and Android engineered with Flutter and Dart.",
+      "Real-time cloud sync, push notifications via Firebase Cloud Messaging (FCM), and offline-capable data caches.",
+      "Multi-step customer onboarding, mobile OTP authentication, and identity document verification workflows.",
+    ],
+  },
+  {
+    title: "Desktop Applications",
+    short: "Offline-first Tauri and Electron apps with local databases.",
+    icon: "monitor",
+    accent: "rose",
+    points: [
+      "Lightweight, cross-platform native desktop apps built with Tauri (Rust backend) and Electron.",
+      "Hardware integrations, desktop video conferencing (Zoom Video SDK), camera/microphone device pipelines, and local database management (SQLite).",
+      "Zero-dependency, offline-first architectures capable of operating reliably without internet connectivity.",
+    ],
+  },
+  {
+    title: "Business Websites & Technical SEO",
+    short: "Fast, search-visible sites tuned for Core Web Vitals.",
+    icon: "gauge",
+    accent: "cyan",
+    points: [
+      "Custom-built marketing websites and digital storefronts optimized for maximum search visibility and Core Web Vitals.",
+      "High Lighthouse scores (90+ on mobile, 99–100 on desktop), zero layout shift (CLS), and sub-second Largest Contentful Paint (LCP).",
+      "Technical SEO, Open Graph structured data, semantic schema markup, and CDN distribution.",
+    ],
+  },
+  {
+    title: "Workflow Automation",
+    short: "Replace spreadsheets and paper processes with custom tools.",
+    icon: "workflow",
+    accent: "emerald",
+    points: [
+      "Analyzing manual, paper-based, or spreadsheet-driven business processes and designing custom web/mobile platforms that automate tracking, status transitions, and team coordination.",
+      "Custom internal tools, admin dashboards, analytical reporting portals, and PDF export engines.",
+    ],
+  },
+  {
+    title: "Applied AI & Automation",
+    short: "LLM features and ML classifiers with enterprise guardrails.",
+    icon: "brain",
+    accent: "fuchsia",
+    points: [
+      "Integrating modern LLM capabilities (Gemini API, Ollama) with enterprise guardrails.",
+      "Custom machine learning classifiers (scikit-learn, Flask REST APIs) for recommendation engines and predictive data classification.",
+      "Fail-closed permission systems and risk-tiered tool registries for safe agentic workflows.",
+    ],
+  },
+]
+
+export const skillGroups: SkillGroup[] = [
+  {
+    domain: "Frontend",
+    icon: "layers",
+    accent: "violet",
+    items: [
+      "React",
+      "Next.js (App Router, Server Components)",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Material UI",
+      "Three.js",
+      "GSAP",
+      "WebGL Shaders",
+      "HTML5",
+      "CSS3",
+      "SCSS",
+    ],
+  },
+  {
+    domain: "Backend",
+    icon: "cpu",
+    accent: "sky",
+    items: [
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "Bun",
+      "Elysia",
+      "REST APIs",
+      "WebSockets",
+      "PHP",
+      "Python",
+      "Flask",
+    ],
+  },
+  {
+    domain: "Mobile",
+    icon: "smartphone",
+    accent: "fuchsia",
+    items: ["Flutter", "Dart", "iOS & Android deployment"],
+  },
+  {
+    domain: "Desktop",
+    icon: "monitor",
+    accent: "rose",
+    items: ["Tauri (Rust integration)", "Electron"],
+  },
+  {
+    domain: "Databases",
+    icon: "database",
+    accent: "emerald",
+    items: [
+      "MongoDB",
+      "PostgreSQL",
+      "SQLite",
+      "MySQL",
+      "Firebase Realtime Database",
+      "Cloud Firestore",
+    ],
+  },
+  {
+    domain: "Cloud & DevOps",
+    icon: "rocket",
+    accent: "cyan",
+    items: [
+      "Vercel",
+      "Railway",
+      "Hostinger",
+      "Render",
+      "Docker Compose",
+      "Git",
+      "GitHub Actions",
+      "Cloudflare",
+    ],
+  },
+  {
+    domain: "Authentication & Security",
+    icon: "zap",
+    accent: "amber",
+    items: [
+      "JWT",
+      "bcrypt",
+      "Firebase Auth",
+      "Role-Based Access Control (RBAC)",
+      "CSP Headers",
+    ],
+  },
+  {
+    domain: "Quality & Tooling",
+    icon: "gauge",
+    accent: "indigo",
+    items: ["Vitest", "Postman", "VS Code", "Figma", "Lighthouse CI"],
+  },
+]
