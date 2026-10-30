@@ -87,6 +87,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: {
+      "msvalidate.01": "D60D60EA5ECF55C1652F5842C4244018",
+    },
   },
   category: "technology",
   classification: "Software Studio & Engineering Consulting",
