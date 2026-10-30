@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/next"
 import type { Metadata, Viewport } from "next"
 import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google"
 import { Providers } from "@/components/providers"
@@ -112,9 +111,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${jakarta.variable} ${geistMono.variable}`}>
-      <head>
-        <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
-      </head>
       <body suppressHydrationWarning>
         <Providers>
           <StudioBackground />
@@ -122,7 +118,6 @@ export default function RootLayout({
           <main id="main" className="relative z-10">{children}</main>
           <SiteFooter />
         </Providers>
-        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
   )
