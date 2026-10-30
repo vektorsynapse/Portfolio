@@ -11,17 +11,17 @@ import { cn } from "@/lib/utils"
 
 export function Testimonials() {
   return (
-    <section id="testimonials" aria-labelledby="testimonials-title" className="scroll-mt-28 px-4 pt-28">
+    <section id="testimonials" aria-labelledby="testimonials-title" className="scroll-mt-24 sm:scroll-mt-28 px-4">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Social Proof"
+          eyebrow="Client Outcomes"
           title={
             <>
               What clients say about{" "}
               <span className="text-gradient">delivering real results</span>
             </>
           }
-          description="Direct feedback from business owners and technical leads who relied on me to deliver mission-critical software."
+          description="Measurable business outcomes and direct feedback from founders and technical leads who relied on Vektorsynapse."
           action={
             <CtaLink href="/work" variant="glass">
               Explore All Case Studies
@@ -47,13 +47,13 @@ export function Testimonials() {
                 <div className="flex-1 flex flex-col">
                   {/* Top row: stars + verified badge */}
                   <div className="flex flex-wrap items-center justify-between gap-2.5">
-                    <div className="flex items-center gap-1 text-amber-400 shrink-0" aria-label={`${t.rating} out of 5 stars`}>
+                    <div role="img" className="flex items-center gap-1 text-amber-400 shrink-0" aria-label={`${t.rating} out of 5 stars`}>
                       {Array.from({ length: t.rating }).map((_, starIdx) => (
                         <Star key={starIdx} className="size-4 fill-current" />
                       ))}
                     </div>
                     <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-600 dark:border-emerald-400/20 dark:bg-emerald-500/15 dark:text-emerald-400">
-                      <CheckCircle2 className="size-3.5 shrink-0" />
+                      <CheckCircle2 aria-hidden="true" className="size-3.5 shrink-0" />
                       <span>Verified Client</span>
                     </span>
                   </div>
@@ -86,9 +86,11 @@ export function Testimonials() {
                         {t.avatarInitials}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-bold text-slate-900 dark:text-white">{t.clientName}</p>
-                        <p className="truncate text-xs text-muted-foreground" title={`${t.role} · ${t.company}`}>
-                          {t.role} · {t.company}
+                        <p className="truncate text-sm font-bold text-slate-900 dark:text-white">
+                          {t.clientName || t.company}
+                        </p>
+                        <p className="truncate text-xs text-muted-foreground" title={t.clientName ? `${t.role} · ${t.company}` : `${t.role} · ${t.location}`}>
+                          {t.clientName ? `${t.role} · ${t.company}` : `${t.role} · ${t.location}`}
                         </p>
                       </div>
                     </div>
@@ -100,7 +102,7 @@ export function Testimonials() {
                         aria-label={`View ${t.projectTitle} project details`}
                         title="View case study"
                       >
-                        <ExternalLink className="size-4 transition-transform duration-200 group-hover/link:scale-110" />
+                        <ExternalLink aria-hidden="true" className="size-4 transition-transform duration-200 group-hover/link:scale-110" />
                       </Link>
                     )}
                   </div>

@@ -5,7 +5,6 @@ import { Providers } from "@/components/providers"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { StudioBackground } from "@/components/studio-background"
-import { WhatsAppButton } from "@/components/whatsapp-button"
 import "./globals.css"
 
 const jakarta = Plus_Jakarta_Sans({
@@ -19,10 +18,13 @@ const geistMono = Geist_Mono({
   display: "swap",
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
 
 export const metadata: Metadata = {
-  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Vektorsynapse | Full-Stack Software Studio",
     template: "%s | Vektorsynapse",
@@ -37,15 +39,23 @@ export const metadata: Metadata = {
     "Flutter developer",
     "NestJS",
     "technical consulting",
+    "custom web applications",
     "Vektorsynapse",
   ],
-  authors: [{ name: "Vektorsynapse" }],
+  authors: [{ name: "Vektorsynapse", url: siteUrl }],
+  creator: "Vektorsynapse",
+  publisher: "Vektorsynapse",
+  formatDetection: {
+    email: true,
+    telephone: false,
+  },
   openGraph: {
     title: "Vektorsynapse | Full-Stack Software Studio",
     description:
       "Production-grade web, mobile and desktop software, from architecture to deployment, with a single point of technical accountability.",
-    ...(siteUrl ? { url: siteUrl } : {}),
+    url: siteUrl,
     type: "website",
+    locale: "en_US",
     siteName: "Vektorsynapse",
     images: [
       {
@@ -63,7 +73,31 @@ export const metadata: Metadata = {
       "Production-grade web, mobile and desktop software, from architecture to deployment, with a single point of technical accountability.",
     images: ["/og-image.png"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: { icon: "/images/vs-logo.png", apple: "/images/vs-logo.png" },
+  manifest: "/manifest.webmanifest",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
+  category: "technology",
+  classification: "Software Studio & Engineering Consulting",
+  other: {
+    "geo.region": "Global",
+    "geo.placename": "Remote Worldwide",
+    "distribution": "global",
+    "rating": "general",
+    "referrer": "origin-when-cross-origin",
+  },
 }
 
 export const viewport: Viewport = {
@@ -78,19 +112,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${jakarta.variable} ${geistMono.variable}`}>
+      <head>
+        <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
+      </head>
       <body suppressHydrationWarning>
         <Providers>
           <StudioBackground />
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-          >
-            Skip to content
-          </a>
           <SiteHeader />
           <main id="main" className="relative z-10">{children}</main>
           <SiteFooter />
-          <WhatsAppButton />
         </Providers>
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

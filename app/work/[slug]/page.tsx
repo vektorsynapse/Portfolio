@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink } from "lucide-react"
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { CtaBand } from "@/components/cta-band"
@@ -10,6 +11,8 @@ import { Reveal } from "@/components/reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { getAdjacentProjects, getProject, projects } from "@/lib/data/projects"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
+
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
 }
@@ -18,9 +21,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const project = getProject(slug)
   if (!project) return {}
+  const description = `${project.tagline}. ${project.solution[0] ?? project.features?.join(", ") ?? ""}`.slice(0, 160)
   return {
-    title: project.title,
-    description: `${project.tagline}. ${project.solution[0] ?? project.features?.join(", ") ?? ""}`.slice(0, 160),
+    title: `${project.title} | Case Study`,
+    description,
+    alternates: {
+      canonical: `/work/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} Case Study | Vektorsynapse`,
+      description,
+      url: `/work/${slug}`,
+      type: "article",
+      images: project.image ? [{ url: project.image, alt: project.title }] : [{ url: "/og-image.png" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} Case Study | Vektorsynapse`,
+      description,
+      images: project.image ? [project.image] : ["/og-image.png"],
+    },
   }
 }
 
@@ -38,13 +58,69 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     { label: "Platform", value: project.platform },
   ].filter((m): m is { label: string; value: string } => Boolean(m.value))
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `${siteUrl}/work/${slug}#case-study`,
+    url: `${siteUrl}/work/${slug}`,
+    name: project.title,
+    headline: project.tagline,
+    description: `${project.tagline}. ${project.solution[0] ?? ""}`,
+    image: project.image ? `${siteUrl}${project.image}` : `${siteUrl}/og-image.png`,
+    creator: {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Vektorsynapse",
+      url: siteUrl,
+    },
+    ...(project.location ? { locationCreated: { "@type": "Place", name: project.location } } : {}),
+    keywords: project.tech.join(", "),
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Work",
+        item: `${siteUrl}/work`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `${siteUrl}/work/${slug}`,
+      },
+    ],
+  }
+
   return (
     <article style={accentStyle(project.accent)} className="px-4 pt-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="mx-auto max-w-7xl">
-        <Link href="/work" className="group/back inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors duration-200 hover:text-foreground">
-          <ArrowLeft aria-hidden="true" className="size-4 transition-transform duration-200 group-hover/back:-translate-x-1" />
-          All work
-        </Link>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
+          <Link href="/work" className="group/back inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-foreground">
+            <ArrowLeft aria-hidden="true" className="size-4 transition-transform duration-200 group-hover/back:-translate-x-1" />
+            <span>Work</span>
+          </Link>
+          <span aria-hidden="true" className="opacity-40">/</span>
+          <span aria-current="page" className="text-foreground truncate max-w-[200px] sm:max-w-none">{project.title}</span>
+        </nav>
 
         <header className="mt-8 grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
           <Reveal immediate>
@@ -72,12 +148,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <TiltCard max={6} className="acc-tint rounded-[2.5rem] ring-1 ring-white/60 dark:ring-white/10">
               {project.image ? (
                 <div className="relative h-72 overflow-hidden rounded-[2.5rem] md:h-80">
-                  <img
+                  <Image
                     src={project.image}
                     alt={`${project.title} screenshot`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    priority={true}
                     className="size-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
                 </div>
               ) : (
                 <ProjectArt surface={project.surface} icon={project.icon} className="h-72 rounded-[2.5rem] md:h-80" />

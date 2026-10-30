@@ -11,9 +11,9 @@ const items = [
 
 export function MetricsBand() {
   return (
-    <section aria-label="Verified results" className="px-4 pt-12 pb-6">
+    <section aria-label="Verified results" className="px-4">
       <Reveal className="mx-auto max-w-7xl">
-        <dl className="glass grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-3xl p-4">
+        <div className="glass grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-3xl p-4">
           {items.map((m) => {
             const Icon = m.icon
             return (
@@ -24,12 +24,12 @@ export function MetricsBand() {
                 <span
                   className={`flex size-12 shrink-0 items-center justify-center rounded-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.7),inset_0_-2px_4px_rgba(0,0,0,0.1),0_4px_12px_-2px_rgba(0,0,0,0.08)] ${m.color}`}
                 >
-                  <Icon className="size-5" strokeWidth={2.2} />
+                  <Icon aria-hidden="true" className="size-5" strokeWidth={2.2} />
                 </span>
                 <div className="min-w-0">
-                  <dd className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-none">
+                  <p className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-none">
                     {m.value}
-                  </dd>
+                  </p>
                   <p className="mt-1 text-xs font-bold text-slate-700 dark:text-slate-300">
                     {m.label}
                   </p>
@@ -37,7 +37,7 @@ export function MetricsBand() {
               </div>
             )
           })}
-        </dl>
+        </div>
       </Reveal>
     </section>
   )

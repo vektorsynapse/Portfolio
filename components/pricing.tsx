@@ -44,7 +44,7 @@ export function Pricing() {
   const [currency, setCurrency] = useState<Currency>("INR")
 
   return (
-    <section id="pricing" aria-labelledby="pricing-title" className="scroll-mt-28 px-4 pt-28">
+    <section id="pricing" aria-labelledby="pricing-title" className="scroll-mt-24 sm:scroll-mt-28 px-4">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Pricing"
@@ -65,6 +65,8 @@ export function Pricing() {
               <button
                 key={c}
                 type="button"
+                aria-pressed={currency === c}
+                aria-label={`Show prices in ${c}`}
                 onClick={() => setCurrency(c)}
                 className={cn(
                   "cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-all duration-200",

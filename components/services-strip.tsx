@@ -30,7 +30,7 @@ const pillars = [
 
 export function ServicesStrip() {
   return (
-    <section id="services" aria-labelledby="services-title" className="relative z-20 scroll-mt-28 sm:scroll-mt-32 px-4 pt-2 pb-10">
+    <section id="services" aria-labelledby="services-title" className="relative z-20 scroll-mt-24 sm:scroll-mt-28 px-4">
       <h2 id="services-title" className="sr-only">
         Services & Capabilities
       </h2>
@@ -46,13 +46,13 @@ export function ServicesStrip() {
                 <span
                   className={`flex size-12 shrink-0 items-center justify-center rounded-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.7),inset_0_-2px_4px_rgba(0,0,0,0.1),0_4px_12px_-2px_rgba(0,0,0,0.08)] ${p.iconBg}`}
                 >
-                  <Icon className="size-6" strokeWidth={2.2} />
+                  <Icon aria-hidden="true" className="size-6" strokeWidth={2.2} />
                 </span>
                 <div className="min-w-0">
                   <h3 className="text-sm font-bold text-slate-900 dark:text-white truncate">
                     {p.title}
                   </h3>
-                  <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400 leading-snug line-clamp-2">
+                  <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300 leading-snug line-clamp-2">
                     {p.description}
                   </p>
                 </div>

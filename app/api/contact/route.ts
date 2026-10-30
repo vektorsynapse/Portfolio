@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { contactSchema } from "@/lib/contact-schema"
 import { profile } from "@/lib/data/profile"
+import { renderLeadNotificationEmail } from "@/lib/email-templates"
 
 export async function POST(request: Request) {
   let payload: unknown
@@ -25,28 +26,34 @@ export async function POST(request: Request) {
 
   const { name, email, projectType, message } = result.data
 
-  // Option 1: Resend API (set RESEND_API_KEY in your env or Vercel dashboard)
+  // Option 1: Resend API (High-delivery custom HTML emails)
   if (process.env.RESEND_API_KEY) {
     try {
-      const res = await fetch("https://api.resend.com/emails", {
+      const fromEmail = process.env.RESEND_FROM_EMAIL || "Vektorsynapse Studio <onboarding@resend.dev>"
+      const leadHtml = renderLeadNotificationEmail({ name, email, projectType, message })
+
+      // 1. Deliver custom-designed lead alert to Studio owner
+      const resendRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Portfolio Lead <onboarding@resend.dev>",
+          from: fromEmail,
           to: [profile.email],
           reply_to: email,
           subject: `New Project Inquiry: ${name} (${projectType})`,
-          text: `Name: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nMessage:\n${message}`,
+          html: leadHtml,
+          text: `New Lead from ${name} (${email})\nProject Type: ${projectType}\n\nMessage:\n${message}`,
         }),
       })
-      if (res.ok) {
-        return NextResponse.json({ ok: true, delivered: true })
+
+      if (resendRes.ok) {
+        return NextResponse.json({ ok: true, delivered: true, provider: "resend" })
       }
     } catch {
-      // Fall through to fallback
+      // Fall through to fallback provider
     }
   }
 
@@ -72,13 +79,13 @@ export async function POST(request: Request) {
       })
       const data = await res.json().catch(() => null)
       if (res.ok && data?.success) {
-        return NextResponse.json({ ok: true, delivered: true })
+        return NextResponse.json({ ok: true, delivered: true, provider: "web3forms" })
       }
     } catch {
       // Fall through to fallback
     }
   }
 
-  // Fallback: validated payload successfully, user can complete delivery via email or WhatsApp
+  // Fallback: validated payload successfully, user can complete delivery via email app
   return NextResponse.json({ ok: true, delivered: false })
 }

@@ -1,0 +1,34 @@
+# Vektorsynapse
+
+> Full-Stack Software Studio building production-grade web, mobile and desktop applications.
+
+Vektorsynapse is a software engineering studio that helps businesses, founders, and international teams turn complex requirements into high-performance digital products. We provide single-point technical accountability across the entire software lifecycle — from architectural planning and UI engineering to API development, database design, cloud deployment, and performance optimization.
+
+## Full Documentation
+- [Full LLMs Knowledge Base](https://vektorsynapse.netlify.app/llms-full.txt): Detailed breakdown of engineering standards, architecture, tech stacks, and case studies.
+
+## Core Capabilities & Services
+- **Business Websites**: High-performance, SEO-optimized, mobile-responsive corporate platforms (90+ Google PageSpeed, zero layout shift).
+- **Web Applications**: Scalable single-page and full-stack web applications built with Next.js, React, Node.js, and TypeScript.
+- **Mobile Applications**: Cross-platform native mobile applications engineered in Flutter with offline caching and real-time syncing.
+- **Desktop Software**: Offline-first commercial billing, inventory, and point-of-sale desktop software built with Electron and SQLite.
+- **API & Cloud Integrations**: Secure REST APIs, database architecture (PostgreSQL, SQLite, MongoDB), and cloud infrastructure deployment (Vercel, Netlify).
+
+## Selected Work & Case Studies (Verified Facts)
+- **Comfort Floors & Bathrooms** (Ireland): International home renovation platform with sub-second loading (92/100 PageSpeed, 0.00 CLS) built with Next.js 14, TypeScript, and Tailwind CSS.
+- **JNTUA College of Engineering Portal** (India): Institutional web portal serving thousands of active engineering students, faculty, and administrative staff with 100% uptime.
+- **SuperCabs** (India): Cross-platform mobile cab rental and mobility app frontend built with Flutter, Dart, Firebase Auth, and FCM.
+- **Medcare** (India): Offline-first Windows commercial billing software with local SQLite database for retail clinical counters, operating with zero cloud dependencies.
+- **Sayed Wedding Invitation**: Bilingual 3D interactive WebGL digital invitation engineered with Three.js, GSAP, and zero-JS fallbacks.
+- **Agnikula Kshatriyas IT Solutions**: Corporate enterprise web platform built with NestJS, TypeScript, and Tailwind CSS.
+
+## Operating Model & Working Principles
+- **Global Availability**: Operates internationally with time-zone overlap across IST, GMT, and EST.
+- **Pricing**: Transparent fixed-price milestone contracts with clearly defined deliverables and zero surprise invoices.
+- **Code Ownership**: 100% client intellectual property ownership upon project delivery, with documented codebases and deployment runbooks.
+
+## Contact & Links
+- **Website**: https://vektorsynapse.netlify.app
+- **Email**: contact.vektorsynapse@gmail.com
+- **GitHub**: https://github.com/vektorsynapse
+- **Target Regions**: Global (Ireland, United States, United Kingdom, India)

@@ -5,15 +5,84 @@ import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
 import { clientProjects, demoProjects } from "@/lib/data/projects"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
+
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Work & Case Studies",
   description:
     "Client case studies and production repositories: cross-platform mobile apps, high-performance business websites, and offline desktop software.",
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    title: "Client Work & Case Studies | Vektorsynapse",
+    description:
+      "Production engagements across Ireland, India and worldwide: high-performance websites, Flutter mobile applications, and desktop software.",
+    url: "/work",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Client Work & Case Studies | Vektorsynapse",
+    description:
+      "Production engagements across Ireland, India and worldwide: high-performance websites, Flutter mobile applications, and desktop software.",
+  },
+}
+
+const workSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${siteUrl}/work#webpage`,
+  url: `${siteUrl}/work`,
+  name: "Client Work & Case Studies | Vektorsynapse",
+  description:
+    "Production engagements across Ireland, India and worldwide: high-performance websites, Flutter mobile applications, and desktop software.",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+  },
+  hasPart: clientProjects.map((p) => ({
+    "@type": "CreativeWork",
+    name: p.title,
+    headline: p.tagline,
+    url: `${siteUrl}/work/${p.slug}`,
+    creator: {
+      "@type": "Organization",
+      name: "Vektorsynapse",
+    },
+  })),
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Work",
+      item: `${siteUrl}/work`,
+    },
+  ],
 }
 
 export default function WorkPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="px-4 pt-14" aria-labelledby="client-title">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
@@ -40,7 +109,7 @@ export default function WorkPage() {
       </section>
 
       {/* Demos & repositories section hidden for now; can be re-enabled in future
-      <section className="px-4 pt-28" aria-labelledby="demos-heading">
+      <section className="px-4 pt-16 md:pt-20" aria-labelledby="demos-heading">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Demos & repositories"

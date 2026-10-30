@@ -78,16 +78,16 @@ export function StudioBackground() {
           transform: "translate3d(0, 0, 0)",
         }}
       >
-        {/* Light theme page background - subtle blur for clean readability */}
+        {/* Light theme page background */}
         <div
-          className="absolute -inset-6 bg-cover bg-top bg-no-repeat transition-opacity duration-500 blur-[8px] scale-[1.03] dark:opacity-0"
-          style={{ backgroundImage: "url('/bg-light.png')" }}
+          className="absolute inset-0 bg-cover bg-top bg-no-repeat transition-opacity duration-500 dark:opacity-0"
+          style={{ backgroundImage: "url('/bg-light.webp')" }}
         />
 
-        {/* Dark theme page background - subtle blur for clean readability */}
+        {/* Dark theme page background */}
         <div
-          className="absolute -inset-6 bg-cover bg-top bg-no-repeat opacity-0 transition-opacity duration-500 blur-[8px] scale-[1.03] dark:opacity-100"
-          style={{ backgroundImage: "url('/bg-dark.png')" }}
+          className="absolute inset-0 bg-cover bg-top bg-no-repeat opacity-0 transition-opacity duration-500 dark:opacity-100"
+          style={{ backgroundImage: "url('/bg-dark.webp')" }}
         />
       </div>
     </div>

@@ -28,7 +28,7 @@ export function SiteFooter() {
   }
 
   return (
-    <footer className="relative z-10 px-4 pb-8 pt-24">
+    <footer className="relative z-10 px-4 pb-8 pt-16 md:pt-20">
       <div className="glass relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] p-8 md:p-12">
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -right-16 size-72 rounded-full bg-brand-violet/25 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -left-16 -top-24 size-64 rounded-full bg-brand-cyan/20 blur-3xl" />
@@ -41,7 +41,7 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label="Footer">
-            <h2 className="eyebrow mb-4">Explore</h2>
+            <h3 className="eyebrow mb-4">Explore</h3>
             <ul className="space-y-2.5 text-sm font-medium">
               {navLinks.map((l) => (
                 <li key={l.href}>
@@ -58,7 +58,7 @@ export function SiteFooter() {
           </nav>
 
           <div>
-            <h2 className="eyebrow mb-4">Get in touch</h2>
+            <h3 className="eyebrow mb-4">Get in touch</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
                 <Mail aria-hidden="true" className="size-4 text-brand-violet shrink-0" />

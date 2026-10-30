@@ -5,7 +5,7 @@ import { profile } from "@/lib/data/profile"
 
 export function CtaBand() {
   return (
-    <section aria-labelledby="cta-title" className="px-4 pt-28">
+    <section aria-labelledby="cta-title" className="px-4">
       <Reveal className="relative mx-auto max-w-7xl overflow-hidden rounded-[3rem] border border-white/90 bg-white/85 p-10 text-center shadow-[0_24px_50px_-12px_rgba(90,70,220,0.12),inset_0_2px_1.5px_#ffffff,inset_0_-3px_8px_rgba(90,70,220,0.06)] backdrop-blur-2xl transition-all duration-300 md:p-16 dark:border-white/12 dark:bg-gradient-to-br dark:from-[#120e36]/90 dark:via-[#191345]/85 dark:to-[#221344]/90 dark:shadow-[0_28px_60px_-15px_rgba(0,0,0,0.7),inset_0_1.5px_1px_rgba(255,255,255,0.18),inset_0_-3px_10px_rgba(0,0,0,0.5)]">
         {/* Ambient atmospheric glows matching hero and page background lighting */}
         <div

@@ -9,7 +9,7 @@ export const faqs: FaqItem[] = [
   {
     category: "process",
     q: "How do we get started?",
-    a: "Just send me a message through the contact page or WhatsApp with a brief description of what you need. I'll reply within 24 hours with a few clarifying questions, then we schedule a free 30-minute discovery call. After that, you get a written proposal with scope, timeline, and fixed price — no obligation.",
+    a: "Just send me a message through the contact page with a brief description of what you need. I'll reply within 24 hours with a few clarifying questions, then we schedule a free 30-minute discovery call. After that, you get a written proposal with scope, timeline, and fixed price — no obligation.",
   },
   {
     category: "process",
@@ -62,7 +62,7 @@ export const faqs: FaqItem[] = [
   {
     category: "working",
     q: "How do we communicate during the project?",
-    a: "Primarily async — I send structured written and video updates so you're never blocked waiting for a scheduled call. For real-time discussions we use WhatsApp, Google Meet, or Zoom. I respond to messages within a few hours during IST business hours and check in daily when a project is active.",
+    a: "Primarily async — I send structured written and video updates so you're never blocked waiting for a scheduled call. For real-time discussions we use email, Google Meet, or Zoom. I respond to messages within a few hours during IST business hours and check in daily when a project is active.",
   },
   {
     category: "working",

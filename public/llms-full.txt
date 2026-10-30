@@ -1,0 +1,95 @@
+# Vektorsynapse — Comprehensive Studio Knowledge Base
+
+> Full-Stack Software Studio building production-grade web, mobile and desktop applications. Single-point technical accountability from architecture to deployment.
+
+## Entity Overview
+- **Studio Name**: Vektorsynapse
+- **Entity Type**: Software Engineering Studio & Technical Consulting
+- **Official Website**: https://vektorsynapse.netlify.app
+- **Official Contact**: contact.vektorsynapse@gmail.com
+- **Official GitHub**: https://github.com/vektorsynapse
+- **Target Regions**: Global (Ireland, United States, United Kingdom, India)
+- **Primary Languages**: English
+- **Pricing Model**: Fixed-price milestone contracts with transparent scopes and zero hidden fees
+
+## Core Capabilities & Services
+
+### 1. High-Performance Business Websites
+- **Core Stacks**: Next.js 14/15 (App Router), React, TypeScript, Tailwind CSS
+- **Engineering Standards**: 90+ Google PageSpeed Insights, 0.00 Cumulative Layout Shift (CLS), sub-second Largest Contentful Paint (LCP)
+- **Architecture**: Route-level code-splitting, modern responsive image formats (AVIF/WebP), accessible ARIA standards, semantic HTML5
+
+### 2. Scalable Web Applications
+- **Core Stacks**: Next.js, React, Node.js, NestJS, TypeScript, PostgreSQL, MongoDB, Prisma
+- **Engineering Standards**: Type-safe REST and GraphQL APIs, JWT/session authentication, RBAC authorization, automated schema validation (Zod)
+
+### 3. Cross-Platform Mobile Applications
+- **Core Stacks**: Flutter, Dart, Firebase Authentication, Firebase Cloud Messaging (FCM), SQLite
+- **Engineering Standards**: Clean architecture, Material Design 3, real-time sync, offline caching, push notifications
+
+### 4. Offline Desktop Software
+- **Core Stacks**: Electron, SQLite, TypeScript, local hardware driver interfaces
+- **Engineering Standards**: Offline-first architecture, local data encryption, automated local backups, fast POS billing workflows
+
+### 5. API Architecture & Cloud Integrations
+- **Core Stacks**: Node.js, NestJS, Express, Serverless Functions, Netlify, Vercel
+- **Engineering Standards**: Resilient error boundaries, structured JSON logging, email automation (Resend), transactional webhooks
+
+## Shipped Client Projects & Case Studies (Verified Facts)
+
+### 1. Comfort Floors & Bathrooms
+- **Client**: Comfort Floors & Bathrooms (via Tech Kshatriyas)
+- **Location**: Ireland
+- **Period**: Nov 2024 – Mar 2025
+- **Platform**: Business website
+- **Live URL**: https://comfortfloors.ie/
+- **Key Metrics**: 92/100 Google PageSpeed Insights score, 0.00 CLS
+- **Technologies**: Next.js 14, TypeScript, React.js, Tailwind CSS
+- **Summary**: Modern, lightning-fast digital storefront serving Irish homeowners and commercial contractors with instant mobile load times on cellular connections.
+
+### 2. JNTUA College of Engineering Portal
+- **Client**: JNTUA College of Engineering
+- **Location**: Pulivendula, India
+- **Platform**: Institutional university portal
+- **Live URL**: https://jntuacep.ac.in/
+- **Key Metrics**: Thousands of active students, faculty, and administrative staff served with 100% uptime
+- **Technologies**: HTML5, CSS3, JavaScript, PHP, MySQL
+- **Summary**: Ongoing core web architectural maintenance, frontend navigation fixes, academic circular publication, and database tuning.
+
+### 3. SuperCabs
+- **Client**: Zyrone Energy (In-house product)
+- **Location**: Gujarat, India
+- **Period**: Mar 2025 – Jul 2025
+- **Platform**: Mobile app (Flutter)
+- **Repository**: https://github.com/vektorsynapse/SuperCabs
+- **Technologies**: Flutter, Dart, Firebase Auth, FCM, Material Design, RESTful APIs
+- **Summary**: Cross-platform mobile cab rental and mobility app frontend featuring 3-step OTP onboarding, driver document verification, and real-time push notification alerts.
+
+### 4. Medcare
+- **Client**: Medcare
+- **Location**: India
+- **Platform**: Offline desktop billing software
+- **Key Metrics**: Sub-second invoice printing, 100% local operation with zero cloud dependencies
+- **Technologies**: Electron, SQLite, Node.js
+- **Summary**: Offline-first commercial billing and inventory software built for retail counter reliability without internet connectivity.
+
+### 5. Sayed Wedding Invitation
+- **Client**: Sayed family Nikah celebration
+- **Platform**: Interactive 3D web experience
+- **Live URL**: https://sayed-wedding-invitation.netlify.app/
+- **Key Metrics**: 61 automated unit tests, 1,902 characters zero-JS fallback
+- **Technologies**: TypeScript, Vite, Three.js, GSAP, Lenis, HarfBuzz
+- **Summary**: Bilingual (English/Telugu) 3D interactive digital invitation with pre-shaped calligraphy and individual guest RSVP access.
+
+### 6. Agnikula Kshatriyas IT Solutions
+- **Client**: Agnikula Kshatriyas IT Solutions
+- **Platform**: Corporate website
+- **Live URL**: https://agnikulakshatriyasitsolutions.com/
+- **Technologies**: NestJS, TypeScript, Tailwind CSS, REST APIs
+- **Summary**: Corporate identity platform showcasing engineering competencies and client acquisition channels.
+
+## Working Principles & Operating Model
+- **Single Point of Technical Accountability**: Direct communication with the engineer building your product — no account managers or telephone game.
+- **Strict Code Ownership**: 100% client intellectual property ownership upon final milestone delivery with full documentation and deployment runbooks.
+- **Fixed-Price Milestones**: Transparent milestone scopes with clear acceptance criteria and zero unexpected charges.
+- **International Availability**: Overlap with IST, GMT, and EST working hours for seamless collaboration.

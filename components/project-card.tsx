@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { ProjectArt, accentStyle } from "@/components/project-art"
 import { TiltCard } from "@/components/tilt-card"
@@ -20,25 +21,20 @@ export function ProjectCard({
       max={4}
       style={accentStyle(project.accent)}
       className={cn(
-        "glass group/card relative flex h-full flex-col overflow-hidden rounded-[2rem] transition-all duration-300 cursor-pointer",
+        "glass group/card relative flex h-full flex-col overflow-hidden rounded-[2rem] transition-all duration-300",
         className,
       )}
     >
-      <Link
-        href={`/work/${project.slug}`}
-        tabIndex={-1}
-        aria-hidden="true"
-        className="absolute inset-0 z-20 rounded-[2rem] cursor-pointer"
-      />
       {project.image ? (
         <div className={cn("relative overflow-hidden bg-foreground/5 shrink-0", featured ? "h-56" : "h-44")}>
-          <img
+          <Image
             src={project.image}
             alt={`${project.title} screenshot`}
-            className="size-full object-cover object-top transition-transform duration-500 group-hover/card:scale-105"
-            loading="lazy"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-top transition-transform duration-500 group-hover/card:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
         </div>
       ) : (
         <div className={cn("relative overflow-hidden shrink-0", featured ? "h-56" : "h-44")}>
@@ -56,7 +52,10 @@ export function ProjectCard({
             <div className="min-w-0">
               <p className="eyebrow mb-2 !text-[0.62rem] !tracking-[0.22em] !text-muted-foreground">{project.platform}</p>
               <h3 className="text-balance text-xl font-extrabold leading-tight transition-colors duration-200 group-hover/card:text-primary">
-                <Link href={`/work/${project.slug}`}>{project.title}</Link>
+                <Link href={`/work/${project.slug}`}>
+                  <span className="absolute inset-0 z-10 rounded-[2rem]" aria-hidden="true" />
+                  {project.title}
+                </Link>
               </h3>
               <p className="mt-1 text-sm text-muted-foreground">{project.tagline}</p>
             </div>
@@ -76,8 +75,8 @@ export function ProjectCard({
           )}
         </div>
 
-        <div className="mt-5">
-          <ul className="flex flex-wrap gap-2" aria-label="Technologies">
+        <div className="mt-5 relative z-20">
+          <ul className="flex flex-wrap gap-2">
             {project.tech.slice(0, featured ? 4 : 3).map((t) => (
               <li key={t} className="chip !px-3 !py-1 !text-xs">
                 {t}

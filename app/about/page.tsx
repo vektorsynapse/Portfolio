@@ -10,15 +10,80 @@ import { SkillsGrid } from "@/components/skills-grid"
 import { profile, workingPrinciples } from "@/lib/data/profile"
 import { services } from "@/lib/data/services"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
+
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Vektorsynapse is a full-stack software studio: services, working principles, and technical capabilities.",
+    "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Vektorsynapse | Full-Stack Software Studio",
+    description:
+      "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Vektorsynapse | Full-Stack Software Studio",
+    description:
+      "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
+  },
+}
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${siteUrl}/about#webpage`,
+  url: `${siteUrl}/about`,
+  name: "About Vektorsynapse | Full-Stack Software Studio",
+  description:
+    "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+  },
+  mainEntity: {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "Vektorsynapse",
+    url: siteUrl,
+  },
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "About",
+      item: `${siteUrl}/about`,
+    },
+  ],
 }
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="px-4 pt-14">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
@@ -53,7 +118,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-4 pt-28" aria-labelledby="services-detail">
+      <section className="px-4 pt-16 md:pt-20" aria-labelledby="services-detail">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Services" title={<span id="services-detail">What we deliver</span>} />
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -81,7 +146,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-4 pt-28" aria-labelledby="principles-title">
+      <section className="px-4 pt-16 md:pt-20" aria-labelledby="principles-title">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Working principles" title={<span id="principles-title">How we work</span>} />
           <div className="mt-12 grid gap-5 md:grid-cols-3">

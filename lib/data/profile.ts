@@ -5,7 +5,6 @@ export const profile = {
   email: "contact.vektorsynapse@gmail.com",
   phone: null as string | null,
   phoneHref: null as string | null,
-  whatsappNumber: null as string | null,
   github: "https://github.com/vektorsynapse",
   linkedin: null as string | null,
   resume: null as string | null,

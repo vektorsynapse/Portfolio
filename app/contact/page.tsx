@@ -6,9 +6,75 @@ import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
 import { profile } from "@/lib/data/profile"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
+
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Start a project with Vektorsynapse: web apps, mobile apps, desktop software and technical consulting.",
+  description:
+    "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Vektorsynapse | Software Studio",
+    description:
+      "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Vektorsynapse | Software Studio",
+    description:
+      "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
+  },
+}
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${siteUrl}/contact#webpage`,
+  url: `${siteUrl}/contact`,
+  name: "Contact Vektorsynapse | Software Studio",
+  description:
+    "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+  },
+  mainEntity: {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "Vektorsynapse",
+    email: profile.email,
+    url: siteUrl,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: profile.email,
+      availableLanguage: ["English"],
+      areaServed: ["Global", "Ireland", "United States", "United Kingdom", "India"],
+    },
+  },
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact",
+      item: `${siteUrl}/contact`,
+    },
+  ],
 }
 
 const channels = [
@@ -20,7 +86,16 @@ const channels = [
 
 export default function ContactPage() {
   return (
-    <section className="px-4 pt-14">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <section className="px-4 pt-14">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           as="h1"

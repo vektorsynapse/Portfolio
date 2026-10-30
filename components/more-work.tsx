@@ -5,7 +5,7 @@ import { demoProjects } from "@/lib/data/projects"
 
 export function MoreWork() {
   return (
-    <section aria-labelledby="demos-title" className="px-4 pt-28">
+    <section aria-labelledby="demos-title" className="px-4">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Demos & repositories"

@@ -35,7 +35,7 @@ export function Brand() {
           <span>Vektor</span>
           <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-fuchsia-600 dark:from-violet-400 dark:to-fuchsia-400 bg-clip-text text-transparent">synapse</span>
         </span>
-        <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+        <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-600 dark:text-slate-300">
           Software Studio
         </span>
       </span>
@@ -192,7 +192,7 @@ export function SiteHeader() {
             className="group/btn hidden sm:inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#6366f1] via-[#a855f7] to-[#f43f5e] px-5 py-2.5 text-xs font-bold text-white shadow-[0_3px_12px_-2px_rgba(244,63,94,0.35),inset_0_1.5px_1px_rgba(255,255,255,0.65),inset_0_-2.5px_5px_rgba(0,0,0,0.18)] transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_6px_20px_-2px_rgba(244,63,94,0.45),inset_0_1.5px_1.5px_rgba(255,255,255,0.8),inset_0_-2.5px_6px_rgba(0,0,0,0.22)] active:scale-[0.97]"
           >
             <span>Let&apos;s Work Together</span>
-            <ArrowRight className="size-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
+            <ArrowRight aria-hidden="true" className="size-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
           </Link>
           <button
             type="button"

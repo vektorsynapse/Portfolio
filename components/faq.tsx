@@ -31,7 +31,9 @@ function FaqAccordionItem({
         <button
           type="button"
           onClick={onToggle}
+          id={`faq-question-${index}`}
           aria-expanded={isOpen}
+          aria-controls={`faq-answer-${index}`}
           className="flex w-full cursor-pointer items-start gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-foreground/[0.02]"
         >
           {/* Number badge */}
@@ -68,6 +70,9 @@ function FaqAccordionItem({
           {isOpen && (
             <motion.div
               key="answer"
+              id={`faq-answer-${index}`}
+              role="region"
+              aria-labelledby={`faq-question-${index}`}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -96,7 +101,7 @@ export function Faq() {
   }
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="scroll-mt-28 px-4 pt-28">
+    <section id="faq" aria-labelledby="faq-title" className="scroll-mt-24 sm:scroll-mt-28 px-4">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="FAQ"
@@ -120,6 +125,7 @@ export function Faq() {
             <button
               key={cat.key}
               type="button"
+              aria-pressed={activeCategory === cat.key}
               onClick={() => {
                 setActiveCategory(cat.key)
                 setOpenIndex(null)

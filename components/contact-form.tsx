@@ -54,25 +54,62 @@ export function ContactForm() {
     setStatus("submitting")
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-      })
+      let sentSuccessfully = false
 
-      const body = await res.json().catch(() => ({}))
+      // 1. Primary: Post to internal API route (handles Resend custom HTML emails)
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(parsed.data),
+        })
 
-      if (res.ok && body.delivered) {
+        const body = await res.json().catch(() => ({}))
+        if (res.ok && body.delivered) {
+          sentSuccessfully = true
+        }
+      } catch {
+        // Fall through to backup provider
+      }
+
+      // 2. Backup: Direct client-side Web3Forms if Resend is not set or failed
+      if (!sentSuccessfully) {
+        const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+        if (web3Key) {
+          try {
+            const formData = new FormData()
+            formData.append("access_key", web3Key)
+            formData.append("name", parsed.data.name)
+            formData.append("email", parsed.data.email)
+            formData.append("from_name", parsed.data.name)
+            formData.append("subject", `New Project Inquiry: ${parsed.data.name} (${parsed.data.projectType})`)
+            formData.append("project_type", parsed.data.projectType)
+            formData.append("message", parsed.data.message)
+
+            const web3Res = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: { Accept: "application/json" },
+              body: formData,
+            })
+            const web3Data = await web3Res.json().catch(() => null)
+            if (web3Res.ok && web3Data?.success) {
+              sentSuccessfully = true
+            }
+          } catch {
+            // Fall through to draft fallback
+          }
+        }
+      }
+
+      if (sentSuccessfully) {
         setValues(parsed.data)
         setDelivered(true)
         setStatus("ready")
-      } else if (res.ok && !body.delivered) {
-        // Fallback: prepared draft for email app
+      } else {
+        // 3. Final fallback: prepared draft for email app
         setValues(parsed.data)
         setDelivered(false)
         setStatus("ready")
-      } else {
-        throw new Error(body.error || "Failed to send message. Please try again.")
       }
     } catch (err) {
       setFormError(err instanceof Error ? err.message : "Something went wrong. Please try again.")

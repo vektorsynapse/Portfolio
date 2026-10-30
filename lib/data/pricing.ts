@@ -27,7 +27,7 @@ export const pricingTiers: PricingTier[] = [
     priceFrom: "₹3,999",
     priceSuffix: "/ starting quote",
     description:
-      "A fast, responsive single-page website with your provided content, contact form, and WhatsApp button. Perfect for launching quickly.",
+      "A fast, responsive single-page website with your provided content and contact form. Perfect for launching quickly.",
     accent: "#22cfee",
     accentRgb: "34 207 238",
     cta: "Start landing page",
@@ -35,7 +35,7 @@ export const pricingTiers: PricingTier[] = [
     features: [
       { text: "1 responsive landing page (React / Next.js / Tailwind)", included: true },
       { text: "Provided content & image integration", included: true },
-      { text: "Contact inquiry form & WhatsApp direct chat", included: true },
+      { text: "Contact inquiry form & email notifications", included: true },
       { text: "Mobile-responsive & basic Google SEO setup", included: true },
       { text: "Live cloud deployment (Vercel / Netlify)", included: true },
       { text: "2 rounds of design revisions included", included: true },
@@ -61,10 +61,10 @@ export const pricingTiers: PricingTier[] = [
     features: [
       { text: "4–5 custom responsive pages (Home, Services, About, Contact)", included: true },
       { text: "Fast loading performance (90+ Google PageSpeed score)", included: true },
-      { text: "Contact form, WhatsApp integration & location embed", included: true },
+      { text: "Contact form & Google Maps location embed", included: true },
       { text: "On-page SEO, meta tags & OpenGraph social preview cards", included: true },
       { text: "Custom domain connection & SSL configuration", included: true },
-      { text: "3 rounds of design reviews & WhatsApp progress updates", included: true },
+      { text: "3 rounds of design reviews & regular progress updates", included: true },
       { text: "14 days post-handover bug-fix warranty", included: true },
       { text: "User login/registration & member dashboard", included: false },
       { text: "Ongoing content updates (available as monthly retainer)", included: false },

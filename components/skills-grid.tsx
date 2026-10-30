@@ -7,7 +7,7 @@ import { skillGroups } from "@/lib/data/services"
 
 export function SkillsGrid() {
   return (
-    <section aria-labelledby="skills-title" className="px-4 pt-28">
+    <section aria-labelledby="skills-title" className="px-4">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Technical skills"

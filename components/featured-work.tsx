@@ -6,7 +6,7 @@ import { clientProjects, featuredProjects } from "@/lib/data/projects"
 
 export function FeaturedWork() {
   return (
-    <section aria-labelledby="work-title" className="px-4 pt-28">
+    <section aria-labelledby="work-title" className="px-4">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Featured projects"
