@@ -1,4 +1,3 @@
-import { Mail } from "lucide-react"
 import { CtaLink } from "@/components/cta-button"
 import { Reveal } from "@/components/reveal"
 import { profile } from "@/lib/data/profile"
@@ -35,22 +34,13 @@ export function CtaBand() {
             {profile.availability}.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex justify-center">
             <CtaLink
               href="/contact"
               size="lg"
               className="bg-gradient-to-r from-[#3a4cff] via-[#7b3cff] to-[#a855f7] text-white font-bold shadow-[0_6px_22px_-2px_rgba(99,102,241,0.4),inset_0_1.5px_1px_rgba(255,255,255,0.65),inset_0_-2.5px_5px_rgba(0,0,0,0.2)] hover:scale-[1.03] hover:brightness-105 active:scale-[0.97] transition-all duration-200"
             >
               Start the conversation
-            </CtaLink>
-            <CtaLink
-              href={`mailto:${profile.email}`}
-              size="lg"
-              arrow={false}
-              icon={<Mail aria-hidden="true" className="size-4.5 text-white dark:text-cyan-400 shrink-0" />}
-              className="bg-slate-900 hover:bg-slate-950 text-white border border-slate-800/80 shadow-[0_6px_20px_-4px_rgba(15,23,42,0.3),inset_0_1.5px_1px_rgba(255,255,255,0.2),inset_0_-2px_4px_rgba(0,0,0,0.3)] dark:bg-slate-900/85 dark:hover:bg-slate-900 dark:text-white dark:border-white/20 dark:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.4),inset_0_1.5px_1px_rgba(255,255,255,0.25),inset_0_-2px_4px_rgba(0,0,0,0.3)] backdrop-blur-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-200"
-            >
-              <span className="font-bold text-white">{profile.email}</span>
             </CtaLink>
           </div>
         </div>
