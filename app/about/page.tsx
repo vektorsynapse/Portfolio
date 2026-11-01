@@ -13,24 +13,24 @@ import { services } from "@/lib/data/services"
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About the Studio",
   description:
-    "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
+    "Vektorsynapse is a full-stack software studio delivering production-grade web applications, Flutter mobile apps, desktop systems, and technical consulting.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Vektorsynapse | Full-Stack Software Studio",
+    title: "About the Studio | Vektorsynapse",
     description:
-      "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
-    url: "/about",
+      "Vektorsynapse is a full-stack software studio delivering production-grade web applications, Flutter mobile apps, desktop systems, and technical consulting.",
+    url: `${siteUrl}/about`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Vektorsynapse | Full-Stack Software Studio",
+    title: "About the Studio | Vektorsynapse",
     description:
-      "Vektorsynapse is a full-stack software studio: services, working principles, production engineering, and technical capabilities.",
+      "Vektorsynapse is a full-stack software studio delivering production-grade web applications, Flutter mobile apps, desktop systems, and technical consulting.",
   },
 }
 

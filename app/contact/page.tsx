@@ -9,24 +9,24 @@ import { profile } from "@/lib/data/profile"
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact the Studio",
   description:
-    "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
+    "Start a project with Vektorsynapse: production web applications, cross-platform Flutter mobile apps, offline desktop systems, and architecture consulting.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Vektorsynapse | Software Studio",
+    title: "Contact the Studio | Vektorsynapse",
     description:
-      "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
-    url: "/contact",
+      "Start a project with Vektorsynapse: production web applications, cross-platform Flutter mobile apps, offline desktop systems, and architecture consulting.",
+    url: `${siteUrl}/contact`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Vektorsynapse | Software Studio",
+    title: "Contact the Studio | Vektorsynapse",
     description:
-      "Start a project with Vektorsynapse: production-grade web applications, Flutter mobile apps, desktop software and technical consulting.",
+      "Start a project with Vektorsynapse: production web applications, cross-platform Flutter mobile apps, offline desktop systems, and architecture consulting.",
   },
 }
 

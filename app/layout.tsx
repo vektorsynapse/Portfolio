@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vektorsynapse | Full-Stack Software Studio",
     description:
-      "Production-grade web, mobile and desktop software, from architecture to deployment, with a single point of technical accountability.",
+      "Vektorsynapse is a full-stack software studio building production-grade web, mobile and desktop applications with Next.js, React, Node.js, NestJS and Flutter.",
     url: siteUrl,
     type: "website",
     locale: "en_US",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vektorsynapse | Full-Stack Software Studio",
     description:
-      "Production-grade web, mobile and desktop software, from architecture to deployment, with a single point of technical accountability.",
+      "Vektorsynapse is a full-stack software studio building production-grade web, mobile and desktop applications with Next.js, React, Node.js, NestJS and Flutter.",
     images: ["/og-image.png"],
   },
   robots: {

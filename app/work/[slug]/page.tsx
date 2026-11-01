@@ -10,8 +10,18 @@ import { ProjectArt, accentStyle } from "@/components/project-art"
 import { Reveal } from "@/components/reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { getAdjacentProjects, getProject, projects } from "@/lib/data/projects"
+import type { Project } from "@/lib/data/types"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netlify.app"
+
+function getMetaDescription(project: Project): string {
+  if (project.metaDescription) return project.metaDescription
+  const combined = `${project.tagline}. ${project.solution[0] ?? project.features?.join(", ") ?? ""}`.trim()
+  if (combined.length <= 158) return combined
+  const truncated = combined.slice(0, 155)
+  const lastSpace = truncated.lastIndexOf(" ")
+  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated) + "..."
+}
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -21,9 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const project = getProject(slug)
   if (!project) return {}
-  const description = `${project.tagline}. ${project.solution[0] ?? project.features?.join(", ") ?? ""}`.slice(0, 160)
+  const description = getMetaDescription(project)
   return {
-    title: `${project.title} | Case Study`,
+    title: `${project.title} Case Study`,
     description,
     alternates: {
       canonical: `/work/${slug}`,
@@ -31,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${project.title} Case Study | Vektorsynapse`,
       description,
-      url: `/work/${slug}`,
+      url: `${siteUrl}/work/${slug}`,
       type: "article",
       images: project.image ? [{ url: project.image, alt: project.title }] : [{ url: "/og-image.png" }],
     },

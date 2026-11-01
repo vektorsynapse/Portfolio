@@ -13,11 +13,13 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: [
+          "Googlebot",
+          "Bingbot",
+          "Google-Extended",
           "GPTBot",
           "ChatGPT-User",
-          "Google-Extended",
-          "PerplexityBot",
           "ClaudeBot",
+          "PerplexityBot",
           "Amazonbot",
           "Applebot",
         ],

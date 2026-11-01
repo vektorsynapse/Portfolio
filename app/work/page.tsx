@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Client Work & Case Studies | Vektorsynapse",
     description:
       "Production engagements across Ireland, India and worldwide: high-performance websites, Flutter mobile applications, and desktop software.",
-    url: "/work",
+    url: `${siteUrl}/work`,
     type: "website",
   },
   twitter: {

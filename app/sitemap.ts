@@ -6,7 +6,7 @@ const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://vektorsynapse.netl
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}`,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,

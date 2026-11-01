@@ -57,6 +57,7 @@ export interface Project {
   solution: string[]
   outcome?: string
   features?: string[]
+  metaDescription?: string
   tech: string[]
   accent: AccentKey
   icon: IconKey

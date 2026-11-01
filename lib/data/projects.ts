@@ -46,6 +46,8 @@ export const projects: Project[] = [
     solution: [
       "Maintained core web architecture, resolving frontend navigation bugs, patching security flaws, updating academic circulars, and tuning page load speeds.",
     ],
+    metaDescription:
+      "Institutional portal maintenance: maintained core web architecture, resolved frontend navigation bugs, patched security flaws, and tuned page speeds.",
     tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
     accent: "amber",
     icon: "graduation",
@@ -122,6 +124,8 @@ export const projects: Project[] = [
     ],
     outcome:
       "Delivered a production-quality mobile frontend handling passenger booking and driver onboarding workflows smoothly with zero UI latency.",
+    metaDescription:
+      "Cross-platform mobile cab rental and mobility app. Engineered a responsive Flutter and Dart frontend with Firebase auth and real-time push alerts.",
     tech: [
       "Flutter",
       "Dart",
@@ -153,6 +157,8 @@ export const projects: Project[] = [
     ],
     outcome:
       "Deployed and in active daily commercial use. Cut customer checkout duration significantly and gave the business owner instantaneous, searchable inventory and transaction logs.",
+    metaDescription:
+      "Offline retail pharmacy and clinic billing. Built a zero-cloud Electron desktop application with SQLite storage, fast invoice generation, and receipt printing.",
     tech: ["Electron", "React", "Node.js", "Express", "SQLite", "MongoDB"],
     accent: "rose",
     icon: "stethoscope",
@@ -194,6 +200,8 @@ export const projects: Project[] = [
     solution: [
       "End-to-end booking marketplace allowing venue operators to list banquet halls and event spaces, and clients to browse, filter by capacity, and request dates.",
     ],
+    metaDescription:
+      "Wedding and event venue booking platform. End-to-end marketplace for operators to list event spaces and clients to browse, filter, and reserve dates.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     accent: "emerald",
     icon: "calendar",
