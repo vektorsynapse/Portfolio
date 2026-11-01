@@ -249,7 +249,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </Link>
         </nav>
       </div>
-      <CtaBand />
+      <div className="mt-14 md:mt-18">
+        <CtaBand />
+      </div>
     </article>
   )
 }

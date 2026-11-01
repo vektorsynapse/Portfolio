@@ -95,7 +95,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <section className="px-4 pt-14">
+      <section className="px-4 pt-10 md:pt-12">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           as="h1"
