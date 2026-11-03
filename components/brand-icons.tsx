@@ -1,5 +1,13 @@
 type SvgProps = { className?: string }
 
+export function ContraIcon({ className }: SvgProps) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 2a8 8 0 1 1 0 16A8 8 0 0 1 12 4Zm1.5 3.5c-2.9 0-5 2.1-5 4.5s2.1 4.5 5 4.5c1.2 0 2.3-.4 3.2-1.1l-1.4-1.6c-.5.4-1.1.7-1.8.7-1.6 0-2.7-1.1-2.7-2.5s1.1-2.5 2.7-2.5c.7 0 1.3.2 1.8.7l1.4-1.6C15.8 7.9 14.7 7.5 13.5 7.5Z" />
+    </svg>
+  )
+}
+
 export function GithubIcon({ className }: SvgProps) {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>

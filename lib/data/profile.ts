@@ -6,6 +6,7 @@ export const profile = {
   phone: null as string | null,
   phoneHref: null as string | null,
   github: "https://github.com/vektorsynapse",
+  contra: "https://contra.com/vektorsynapse/services",
   linkedin: null as string | null,
   resume: null as string | null,
   resumePdf: null as string | null,

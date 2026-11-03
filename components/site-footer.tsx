@@ -3,7 +3,7 @@
 import { Mail } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { GithubIcon } from "@/components/brand-icons"
+import { ContraIcon, GithubIcon } from "@/components/brand-icons"
 import { Brand } from "@/components/site-header"
 import { navLinks, profile } from "@/lib/data/profile"
 
@@ -71,6 +71,14 @@ export function SiteFooter() {
                   <GithubIcon aria-hidden="true" className="size-4 text-brand-violet shrink-0" />
                   <a href={profile.github} target="_blank" rel="noreferrer" className="break-all hover:underline hover:text-primary transition-colors">
                     GitHub / vektorsynapse
+                  </a>
+                </li>
+              )}
+              {profile.contra && (
+                <li className="flex items-center gap-3">
+                  <ContraIcon aria-hidden="true" className="size-4 text-brand-violet shrink-0" />
+                  <a href={profile.contra} target="_blank" rel="noreferrer" className="break-all hover:underline hover:text-primary transition-colors">
+                    Contra / vektorsynapse
                   </a>
                 </li>
               )}
